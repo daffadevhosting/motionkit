@@ -1,5 +1,4 @@
-# motionkit
----
+# motionkit - CSS utility
 
 🎯 PHASE 1: RESEARCH & STRATEGY (Minggu 1)
 
@@ -169,13 +168,13 @@ interface DesignTokens {
 
 🚀 RECOMMENDED STARTING POINT
 
-MULAI DENGAN INI: (Hari 1-3 201025)
+MULAI DENGAN INI: (Hari 1-3/201025)
 
 1. Setup Foundation
 
 ```bash
-mkdir css-utility-kit
-cd css-utility-kit
+mkdir motionkit
+cd motionkit
 
 # Create monorepo structure
 packages/
@@ -204,7 +203,7 @@ const PerfectButton = {
 # Test dengan real developers
 npx create-react-app test-app
 cd test-app
-npx ../css-utility-kit/cli add button
+npx ../motionkit/cli add button
 # Feedback: How was the experience?
 ```
 
