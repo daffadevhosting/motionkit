@@ -1,6 +1,6 @@
 {
   "name": "@jekyll-studio/motionkit",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "A collection of animated CSS utility components for React with Framer Motion & AnimeJS",
   "type": "module",
   "main": "./dist/index.js",
