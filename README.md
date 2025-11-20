@@ -8,10 +8,42 @@ MotionKit is a modern component library for React applications, providing a rich
 npm install @jekyll-studio/motionkit
 ```
 
+### Setup for Tailwind CSS v4
+
+If your project uses Tailwind CSS v4, you'll need to install the necessary dependencies:
+
+```bash
+npm install -D @tailwindcss/postcss @tailwindcss/vite tailwindcss
+```
+
+Add the Tailwind plugin to your Vite configuration:
+
+```js
+// vite.config.js
+import { defineConfig } from "vite";
+import tailwindcss from "@tailwindcss/vite";
+
+export default defineConfig({
+  plugins: [
+    tailwindcss(),
+  ],
+});
+```
+
+And import the MotionKit CSS in your main CSS file:
+
+```css
+/* In your main CSS file */
+@import "@jekyll-studio/motionkit/src/motionkit.css";
+```
+
+If your project uses Tailwind CSS v3, you can follow the standard Tailwind installation process and then import the CSS file as shown in the usage example.
+
 ## Usage
 
 ```jsx
 import { Button, Card, Input, Checkbox, Select, Tabs, Toggle } from 'motionkit';
+import '@jekyll-studio/motionkit/src/motionkit.css'; // Import the MotionKit CSS for Tailwind classes
 import React, { useState } from 'react';
 
 function App() {
