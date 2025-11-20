@@ -1,6 +1,6 @@
 {
   "name": "motionkit",
-  "version": "0.0.1-alpha.1",
+  "version": "1.0.0",
   "description": "A collection of animated CSS utility components for React with Framer Motion & AnimeJS",
   "type": "module",
   "main": "./dist/index.js",
