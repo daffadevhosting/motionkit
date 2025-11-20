@@ -1,228 +1,226 @@
-# motionkit - CSS utility
+# MotionKit Documentation
 
-🎯 PHASE 1: RESEARCH & STRATEGY (Minggu 1)
+MotionKit is a modern component library for React applications, providing a rich set of animated UI components. Built with **TypeScript** for type safety, **Framer Motion** for declarative animations, and **Anime.js** via a custom hook for general-purpose entry animations, it offers a blend of performance, flexibility, and stunning visuals.
 
-1.1 Market Research & Analysis
-
-```markdown
-TREN SAAT INI yang perlu dianalisis:
-✅ shadcn/ui - Populer karena "copy-paste" philosophy
-✅ Aceternity UI - Animasi & effects yang impressive  
-✅ Magic UI - Component dengan motion yang smooth
-✅ Tremor - Charts & data visualization
-✅ NextUI - Beautiful components dengan modern design
-✅ Chakra UI - Accessibility & developer experience
-✅ Framer Motion - Standard untuk animasi React
-```
-
-1.2 User Pain Points Analysis
-
-```typescript
-// PROBLEM YANG DIHADAPI DEVELOPER SAAT INI:
-interface PainPoints {
-  designConsistency: "Sulit maintain consistency across components";
-  animationComplexity: "Setup animasi yang rumit & performance issues";
-  bundleSize: "Library UI yang berat & bloated bundle";
-  learningCurve: "Steep learning curve untuk animasi advanced";
-  customization: "Sulit customize components yang complex";
-  accessibility: "Animasi yang break accessibility";
-}
-```
-
-1.3 Competitive Advantage Positioning
-
-```markdown
-OUR UNIQUE VALUE PROPOSITION:
-
-🚀 "Zero-Runtime CSS Utilities + Optional Animation Power"
-💡 "Start simple, scale to complex animations when needed"
-🎯 "Performance-first dengan selective animation imports"
-🔧 "Developer experience seperti shadcn/ui + power Framer Motion"
-```
-
-📐 PHASE 2: BLUEPRINT & ARCHITECTURE (Minggu 2)
-
-2.1 Core Architecture Decision
-
-```typescript
-// STRUKTUR HYBRID YANG KITA PAKAI:
-interface Architecture {
-  core: "CSS Utility Classes (Tailwind-based)";
-  animation: {
-    basic: "CSS Transitions & Transforms";
-    advanced: "Framer Motion for complex animations";
-    special: "AnimeJS for specific effects";
-  };
-  distribution: {
-    cli: "Component generator like shadcn/ui";
-    npm: "Traditional package for quick setup";
-  };
-}
-```
-
-2.2 Component Taxonomy
-
-```markdown
-TIER 1 - ESSENTIALS (MVP):
-┌─────────────┬─────────────────────┬─────────────────┐
-│ Component   │ Animation Ready     │ Use Case        │
-├─────────────┼─────────────────────┼─────────────────┤
-│ Button      │ Ripple, Load, Hover │ Primary actions │
-│ Card        │ Stagger, Lift       │ Content containers│
-│ Input       │ Focus, Validation   │ Forms           │
-│ Modal       │ Entrance/Exit       │ Dialogs         │
-│ Toggle      │ Switch, State       │ Settings        │
-└─────────────┴─────────────────────┴─────────────────┘
-
-TIER 2 - ADVANCED (Phase 2):
-• Navigation (Tabs, Breadcrumbs)
-• Feedback (Toast, Alert, Progress)
-• Data Display (Table, List, Grid)
-```
-
-2.3 Animation Strategy Matrix
-
-```typescript
-interface AnimationStrategy {
-  performance: {
-    css: "Transforms & opacity for 60fps";
-    willChange: "Optimize rendering layers";
-    reduceMotion: "Respect user preferences";
-  };
-  patterns: {
-    micro: "Hover, focus, active states";
-    macro: "Page transitions, modal entries";
-    functional: "Loading, success, error states";
-  };
-  accessibility: {
-    reduceMotion: "prefers-reduced-motion";
-    focusManagement: "Animation tidak ganggu focus";
-    screenReaders: "Proper ARIA labels";
-  };
-}
-```
-
-🧪 PHASE 3: PROTOTYPE & VALIDATION (Minggu 3)
-
-3.1 Build Minimal Testable Product
+## Installation
 
 ```bash
-# Yang kita test dulu:
-✅ 1 Component (Button) dengan semua variant
-✅ 2 Animation types (CSS + Framer Motion)  
-✅ CLI basic functionality
-✅ Performance impact measurement
+npm install motionkit
 ```
 
-3.2 Developer Experience Testing
+## Usage
 
-```typescript
-// TEST SCENARIOS:
-const testScenarios = [
-  "Installation time < 2 minutes",
-  "First component setup < 5 minutes", 
-  "Customization intuitive",
-  "Animation easy to add/remove",
-  "Bundle size acceptable",
-  "TypeScript support flawless"
-];
-```
+```jsx
+import { Button, Card, Input, Checkbox, Select, Tabs, Toggle } from 'motionkit';
+import React, { useState } from 'react';
 
-3.3 Gather Early Feedback
+function App() {
+  const [isModalOpen, setIsModalOpen] = useState(false);
+  const [isChecked, setIsChecked] = useState(false);
+  const [selectedOption, setSelectedOption] = useState('option1');
+  const [activeTab, setActiveTab] = useState('tab1');
+  const [isToggled, setIsToggled] = useState(false);
 
-```markdown
-TARGET TESTERS:
-• Frontend developers familiar with Tailwind
-• React developers wanting animations
-• Teams maintaining design systems
-• Solo developers building side projects
-```
+  return (
+    <div className="p-8 space-y-8">
+      {/* Button Example */}
+      <Button variant="default" animateOn={{ type: 'slideUp' }}>Click me</Button>
+      <Button variant="destructive" loading>Loading...</Button>
+      
+      {/* Card Example */}
+      <Card hover="lift" animateOn={{ type: 'scale' }}>
+        <Card.Header>
+          <Card.Title>Card Title</Card.Title>
+        </Card.Header>
+        <Card.Content>
+          <p>Card content</p>
+          <Input placeholder="Enter text..." />
+        </Card.Content>
+      </Card>
 
-📝 PHASE 4: DOCUMENTATION & POLISH (Minggu 4)
+      {/* Input Example */}
+      <Input placeholder="Enter text..." variant="default" size="md" animateOn={{ type: 'fadeIn' }} />
+      <Input placeholder="Error state" variant="error" />
+      
+      {/* Checkbox Example */}
+      <Checkbox checked={isChecked} onCheckedChange={setIsChecked} label="Remember me" />
 
-4.1 Comprehensive Documentation
+      {/* RadioGroup Example */}
+      <RadioGroup value={selectedOption} onValueChange={setSelectedOption} orientation="horizontal">
+        <RadioGroupItem value="option1">Option 1</RadioGroupItem>
+        <RadioGroupItem value="option2">Option 2</RadioGroupItem>
+      </RadioGroup>
 
-```markdown
-DOCS STRUCTURE:
-├── Getting Started
-├── Installation (CLI vs Package)
-├── Components (Each with examples)
-├── Animation Guide (When to use what)
-├── Performance Best Practices  
-├── Accessibility Guide
-└── Migration from other libraries
-```
+      {/* Select Example */}
+      <Select value={selectedOption} onValueChange={setSelectedOption} placeholder="Select an option">
+        <SelectTrigger />
+        <SelectContent>
+          <SelectItem value="option1">Option 1</SelectItem>
+          <SelectItem value="option2">Option 2</SelectItem>
+          <SelectSeparator />
+          <SelectItem value="option3">Option 3</SelectItem>
+        </SelectContent>
+      </Select>
 
-4.2 Theme & Customization
+      {/* Tabs Example */}
+      <Tabs defaultValue="tab1" onValueChange={setActiveTab}>
+        <TabsList>
+          <TabsTrigger value="tab1">Tab 1</TabsTrigger>
+          <TabsTrigger value="tab2">Tab 2</TabsTrigger>
+        </TabsList>
+        <TabsContent value="tab1">Content for Tab 1</TabsContent>
+        <TabsContent value="tab2">Content for Tab 2</TabsContent>
+      </Tabs>
 
-```typescript
-// DESIGN TOKENS YANG FLEKSIBEL:
-interface DesignTokens {
-  colors: "Extendable color system";
-  spacing: "Consistent scale";
-  typography: "Font system";
-  animation: "Duration, easing curves";
-  borderRadius: "Unified corner radius";
+      {/* Tooltip Example */}
+      <Tooltip>
+        <TooltipTrigger>
+          <Button variant="outline">Hover for info</Button>
+        </TooltipTrigger>
+        <TooltipContent side="right">
+          This is a tooltip!
+        </TooltipContent>
+      </Tooltip>
+
+      {/* ProgressBar Example */}
+      <ProgressBar value={75} />
+
+      {/* Spinner Example */}
+      <Spinner size="lg" color="#0ea5e9" />
+
+      {/* Alert Example */}
+      <Alert variant="info" title="Heads up!" description="This is an informational alert." closable />
+
+      {/* Modal Example (trigger button) */}
+      <Button onClick={() => setIsModalOpen(true)}>Open Modal</Button>
+      <Modal isOpen={isModalOpen} onClose={() => setIsModalOpen(false)}>
+        <Card.Header><Card.Title>Modal Title</Card.Title></Card.Header>
+        <Card.Content><p>This is the modal content.</p></Card.Content>
+      </Modal>
+
+      {/* Toggle Example */}
+      <Toggle enabled={isToggled} onChange={setIsToggled} label="Enable Feature" />
+    </div>
+  );
 }
 ```
 
-🚀 RECOMMENDED STARTING POINT
+## Components
 
-MULAI DENGAN INI: (Hari 1-3/201025)
+### Core Principles
+- **Animations:** All components come with built-in animations using Framer Motion for interactive effects (hover, tap, enter/exit) and Anime.js (via `useAnimation` hook) for general entry animations.
+- **Styling:** Powered by Tailwind CSS for utility-first styling and easy customization.
+- **Accessibility:** Designed with ARIA attributes and keyboard navigation in mind.
 
-1. Setup Foundation
+### Button
+- **Description:** A highly customizable button with variants, sizes, ripple effect, and loading states.
+- **Variants:** `default`, `destructive`, `outline`, `ghost`
+- **Sizes:** `sm`, `md`, `lg`
+- **Features:** Ripple effect, loading state, Framer Motion animations (`whileHover`, `whileTap`), and Anime.js entry animations (`animateOn` prop).
 
-```bash
-mkdir motionkit
-cd motionkit
+### Card
+- **Description:** A flexible container component for grouping content, with header, title, and content sub-components.
+- **Variants:** `default`, `elevated`, `glass`
+- **Hover Effects:** `none`, `lift`, `glow`
+- **Features:** Animated entrance, staggered children animations, and Anime.js entry animations (`animateOn` prop).
 
-# Create monorepo structure
-packages/
-├── core/           # CSS utilities & base components
-├── cli/            # Component generator
-├── animations/     # Framer Motion + AnimeJS integrations
-└── docs/           # Documentation website
-```
+### Input
+- **Description:** A styled input field component.
+- **Variants:** `default`, `error`, `success` (for visual feedback)
+- **Sizes:** `sm`, `md`, `lg`
+- **Features:** Anime.js entry animations (`animateOn` prop).
 
-2. Build ONE Perfect Component
+### Modal
+- **Description:** An animated, accessible modal dialog with overlay.
+- **Features:** Animated entry/exit, escape key close, basic focus management, and scroll locking on body.
 
-```typescript
-// Fokus bikin BUTTON yang sempurna dulu
-const PerfectButton = {
-  variants: ["solid", "outline", "ghost"],
-  sizes: ["sm", "md", "lg"], 
-  animations: ["none", "ripple", "pulse", "bounce"],
-  states: ["loading", "disabled", "success"],
-  accessibility: "Full keyboard & screen reader support"
-};
-```
+### Toggle
+- **Description:** An animated toggle switch component.
+- **Sizes:** `sm`, `md`, `lg`
+- **Features:** Customizable active/inactive colors, label support, and accessibility (`role="switch"`, `aria-checked`).
 
-3. Validate Concept
+### Avatar
+- **Description:** A component to display user profile pictures or fallback initials.
+- **Sizes:** `sm`, `md`, `lg`, `xl`
+- **Shapes:** `circle`, `square`
+- **Features:** Framer Motion `whileHover` animation and Anime.js entry animations (`animateOn` prop).
 
-```bash
-# Test dengan real developers
-npx create-react-app test-app
-cd test-app
-npx ../motionkit/cli add button
-# Feedback: How was the experience?
-```
+### Badge
+- **Description:** A small, informative component for displaying notifications, labels, or status.
+- **Variants:** `default`, `primary`, `secondary`, `destructive`, `outline`, `ghost`
+- **Sizes:** `sm`, `md`, `lg`
+- **Rounded:** `sm`, `md`, `lg`, `full`
+- **Features:** Framer Motion `whileHover`, `whileTap` animations, and Anime.js entry animations (`animateOn` prop).
 
-🎯 IMMEDIATE ACTION PLAN
-
-HARI INI 201025:
-
-1. Setup monorepo structure
-2. Create Button component dengan 3 animation types
-3. Basic CLI add command
-4. Test dengan 2 teman developer
-
-MINGGU INI:
-
-1. 5 essential components (Button, Input, Card, Modal, Toggle)
-2. Performance benchmarking
-3. Gather initial feedback
-4. Document the "why" and philosophy
-
-YANG PALING PENTING: Build something USEFUL, bukan just another UI library. Fokus pada developer experience dan performance.
+### Alert
+- **Description:** A component to display important, contextual messages to the user.
+- **Variants:** `default`, `info`, `success`, `warning`, `destructive`
+- **Features:** Animated entry/exit, closable with `onClose` callback, default icons based on variant, and accessibility (`role="alert"`, `aria-live`).
 
 ---
+
+### Checkbox
+- **Description:** A customizable checkbox input with animated states.
+- **Features:** Controlled `checked` state, `onCheckedChange` callback, disabled state, and Anime.js entry animations (`animateOn` prop).
+- **Accessibility:** Proper `role="checkbox"` and `aria-checked` attributes.
+
+### RadioGroup
+- **Description:** A group of radio buttons where only one option can be selected at a time.
+- **Sub-components:** `RadioGroupItem`
+- **Features:** Controlled `value` and `onValueChange`, disabled states, horizontal/vertical orientation, and Anime.js entry animations (`animateOn` prop) on the group.
+- **Accessibility:** Proper `role="radiogroup"` and `role="radio"` attributes.
+
+### Select
+- **Description:** A customizable dropdown/select component for choosing an option from a list.
+- **Sub-components:** `SelectTrigger`, `SelectContent`, `SelectItem`, `SelectSeparator`
+- **Features:** Controlled `value` and `onValueChange`, disabled state, custom placeholder, animated dropdown content, and Anime.js entry animations (`animateOn` prop) on the trigger.
+- **Accessibility:** Proper `role="combobox"`, `aria-haspopup`, `aria-expanded` attributes.
+
+### Tabs
+- **Description:** A set of layered content areas, with only one visible at a time.
+- **Sub-components:** `TabsList`, `TabsTrigger`, `TabsContent`
+- **Features:** Controlled `value` and `onValueChange`, animated tab content transitions, and an animated indicator for the active tab.
+- **Accessibility:** Proper `role="tablist"`, `role="tab"`, `role="tabpanel"` attributes.
+
+### Tooltip
+- **Description:** A small, contextual popup that displays information about an element on hover or focus.
+- **Sub-components:** `TooltipTrigger`, `TooltipContent`
+- **Features:** Customizable side, alignment, and offset; animated content entry/exit; and configurable delay for showing/hiding.
+- **Accessibility:** Proper `aria-describedby` and `role="tooltip"` attributes.
+
+### ProgressBar
+- **Description:** A visual indicator of progress toward the completion of a task.
+- **Features:** Animated progress indication and Anime.js entry animations (`animateOn` prop).
+- **Accessibility:** Proper `role="progressbar"`, `aria-valuenow`, `aria-valuemin`, `aria-valuemax` attributes.
+
+### Spinner
+- **Description:** A visual indicator for loading states.
+- **Features:** Customizable size and color, continuous rotation animation.
+- **Accessibility:** Proper `role="status"` and `aria-label`.
+
+## Features
+
+- Built with TypeScript for type safety
+- Framer Motion for smooth animations and complex orchestrations
+- Anime.js (via `useAnimation` hook) for general component entry animations
+- Tailwind CSS for styling
+- Responsive design
+- Accessible components
+
+## Development
+
+To run the development server:
+
+```bash
+npm run dev
+```
+
+To build the library:
+
+```bash
+npm run build
+```
+
+## License
+
+MIT

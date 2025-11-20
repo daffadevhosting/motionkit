@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MotionKit Components Demo</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            colors: {
+              primary: {
+                50: '#f0f9ff',
+                100: '#e0f2fe',
+                200: '#bae6fd',
+                300: '#7dd3fc',
+                400: '#38bdf8',
+                500: '#0ea5e9',
+                600: '#0284c7',
+                700: '#0369a1',
+                800: '#075985',
+                900: '#0c4a6e',
+              },
+              destructive: {
+                50: '#fef2f2',
+                100: '#fee2e2',
+                200: '#fecaca',
+                300: '#fca5a5',
+                400: '#f87171',
+                500: '#ef4444',
+                600: '#dc2626',
+                700: '#b91c1c',
+                800: '#991b1b',
+                900: '#7f1d1d',
+              }
+            }
+          }
+        }
+      }
+    </script>
+  </head>
+  <body class="bg-gray-50 min-h-screen">
+    <div id="root" class="container mx-auto py-8"></div>
+
+    <script>
+      // Static demo for MotionKit components
+      document.addEventListener('DOMContentLoaded', () => {
+        const root = document.getElementById('root');
+
+        root.innerHTML = `
+          <div class="p-8 space-y-6 min-h-screen bg-gradient-to-br from-blue-50 to-purple-50">
+            <h1 class="text-3xl font-bold text-center text-gray-800">MotionKit Components Demo</h1>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-4xl mx-auto">
+              <!-- Buttons Demo -->
+              <div class="bg-white p-6 rounded-lg shadow-md">
+                <h2 class="text-xl font-semibold mb-4 text-gray-800">Buttons</h2>
+                <div class="space-y-4">
+                  <button class="inline-flex items-center justify-center rounded-md font-medium transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-primary-500 focus:ring-offset-2 disabled:opacity-50 disabled:pointer-events-none relative overflow-hidden bg-primary-500 text-white hover:bg-primary-600 px-4 py-2 text-base">
+                    Default Button
+                  </button>
+                  <button class="inline-flex items-center justify-center rounded-md font-medium transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-primary-500 focus:ring-offset-2 disabled:opacity-50 disabled:pointer-events-none relative overflow-hidden border border-gray-300 bg-transparent hover:bg-gray-50 px-4 py-2 text-base">
+                    Outline Button
+                  </button>
+                  <button class="inline-flex items-center justify-center rounded-md font-medium transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-primary-500 focus:ring-offset-2 disabled:opacity-50 disabled:pointer-events-none relative overflow-hidden bg-transparent hover:bg-gray-100 px-4 py-2 text-base">
+                    Ghost Button
+                  </button>
+                  <button class="inline-flex items-center justify-center rounded-md font-medium transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-primary-500 focus:ring-offset-2 disabled:opacity-50 disabled:pointer-events-none relative overflow-hidden bg-destructive-500 text-white hover:bg-destructive-600 px-4 py-2 text-base">
+                    Destructive Button
+                  </button>
+                </div>
+              </div>
+
+              <!-- Card Demo -->
+              <div class="bg-white p-6 rounded-lg shadow-md">
+                <h2 class="text-xl font-semibold mb-4 text-gray-800">Card Component</h2>
+                <div class="rounded-lg p-6 transition-all duration-300 bg-white border border-gray-200">
+                  <div class="flex flex-col space-y-1.5 mb-2">
+                    <h3 class="text-2xl font-semibold leading-none tracking-tight text-gray-800">Card Title</h3>
+                  </div>
+                  <div class="pt-4">
+                    <p class="text-gray-600">This is a sample card component with header, title, and content sections.</p>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Input Demo -->
+              <div class="bg-white p-6 rounded-lg shadow-md">
+                <h2 class="text-xl font-semibold mb-4 text-gray-800">Input Component</h2>
+                <div class="space-y-4">
+                  <input
+                    type="text"
+                    placeholder="Enter text..."
+                    class="flex h-10 w-full rounded-md border border-input bg-background px-3 py-2 text-sm ring-offset-background file:border-0 file:bg-transparent file:text-sm file:font-medium placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50 w-full border-gray-300"
+                  />
+                  <input
+                    type="email"
+                    placeholder="Enter email..."
+                    class="flex h-10 w-full rounded-md border border-input bg-background px-3 py-2 text-sm ring-offset-background file:border-0 file:bg-transparent file:text-sm file:font-medium placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50 w-full border-gray-300"
+                  />
+                </div>
+              </div>
+
+              <!-- Toggle Demo -->
+              <div class="bg-white p-6 rounded-lg shadow-md">
+                <h2 class="text-xl font-semibold mb-4 text-gray-800">Toggle Component</h2>
+                <div class="flex items-center space-x-4">
+                  <button class="relative inline-flex items-center rounded-full transition-colors focus:outline-none focus:ring-2 focus:ring-primary-500 bg-primary-500 w-12 h-6">
+                    <span class="inline-block transform bg-white rounded-full transition-transform w-5 h-5 absolute left-0.5 translate-x-7"></span>
+                  </button>
+                  <span class="text-gray-600">Enabled</span>
+                </div>
+
+                <div class="mt-4 flex items-center space-x-4">
+                  <button class="relative inline-flex items-center rounded-full transition-colors focus:outline-none focus:ring-2 focus:ring-primary-500 bg-gray-200 w-12 h-6">
+                    <span class="inline-block transform bg-white rounded-full transition-transform w-5 h-5 absolute left-0.5 translate-x-0.5"></span>
+                  </button>
+                  <span class="text-gray-600">Disabled</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        `;
+      });
+    </script>
+  </body>
+</html>

@@ -1,0 +1,421 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>MotionKit - Documentation</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            primary: {
+              50: '#f0f9ff',
+              100: '#e0f2fe',
+              200: '#bae6fd',
+              300: '#7dd3fc',
+              400: '#38bdf8',
+              500: '#0ea5e9',
+              600: '#0284c7',
+              700: '#0369a1',
+              800: '#075985',
+              900: '#0c4a6e',
+            },
+            destructive: {
+              50: '#fef2f2',
+              100: '#fee2e2',
+              200: '#fecaca',
+              300: '#fca5a5',
+              400: '#f87171',
+              500: '#ef4444',
+              600: '#dc2626',
+              700: '#b91c1c',
+              800: '#991b1b',
+              900: '#7f1d1d',
+            }
+          }
+        }
+      }
+    }
+  </script>
+  <style>
+    body {
+      background-color: #f9fafb;
+      color: #1f2937;
+    }
+    code {
+      background-color: #f3f4f6;
+      padding: 0.2rem 0.4rem;
+      border-radius: 0.25rem;
+      font-family: monospace;
+    }
+    pre {
+      background-color: #f9fafb;
+      color: #1f2937;
+      padding: 1rem;
+      border-radius: 0.5rem;
+      overflow-x: auto;
+      border: 1px solid #e5e7eb;
+    }
+    .section {
+      margin-bottom: 3rem;
+      padding: 1.5rem;
+      border-radius: 0.5rem;
+      background-color: white;
+      box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px -1px rgba(0, 0, 0, 0.1);
+    }
+  </style>
+</head>
+<body class="bg-gray-50 min-h-screen">
+  <div class="container mx-auto px-4 py-8 max-w-4xl">
+    <header class="mb-12 text-center">
+      <h1 class="text-4xl font-bold text-gray-900 mb-4">MotionKit Documentation</h1>
+      <p class="text-lg text-gray-600">A modern component library with animations for React applications</p>
+    </header>
+
+    <nav class="mb-12">
+      <h2 class="text-2xl font-semibold mb-4 text-gray-800">Table of Contents</h2>
+      <ul class="space-y-2">
+        <li><a href="#installation" class="text-primary-500 hover:underline">Installation</a></li>
+        <li><a href="#quick-start" class="text-primary-500 hover:underline">Quick Start</a></li>
+        <li><a href="#components" class="text-primary-500 hover:underline">Components</a>
+          <ul class="ml-4 mt-2 space-y-1">
+            <li><a href="#button" class="text-primary-500 hover:underline">Button</a></li>
+            <li><a href="#card" class="text-primary-500 hover:underline">Card</a></li>
+            <li><a href="#input" class="text-primary-500 hover:underline">Input</a></li>
+            <li><a href="#modal" class="text-primary-500 hover:underline">Modal</a></li>
+            <li><a href="#toggle" class="text-primary-500 hover:underline">Toggle</a></li>
+            <li><a href="#avatar" class="text-primary-500 hover:underline">Avatar</a></li>
+            <li><a href="#badge" class="text-primary-500 hover:underline">Badge</a></li>
+            <li><a href="#alert" class="text-primary-500 hover:underline">Alert</a></li>
+            <li><a href="#checkbox" class="text-primary-500 hover:underline">Checkbox</a></li>
+            <li><a href="#radio-group" class="text-primary-500 hover:underline">Radio Group</a></li>
+            <li><a href="#select" class="text-primary-500 hover:underline">Select</a></li>
+            <li><a href="#tabs" class="text-primary-500 hover:underline">Tabs</a></li>
+            <li><a href="#tooltip" class="text-primary-500 hover:underline">Tooltip</a></li>
+            <li><a href="#progress-bar" class="text-primary-500 hover:underline">Progress Bar</a></li>
+            <li><a href="#spinner" class="text-primary-500 hover:underline">Spinner</a></li>
+          </ul>
+        </li>
+      </ul>
+    </nav>
+
+    <section id="installation" class="section">
+      <h2 class="text-2xl font-semibold mb-4 text-gray-800">Installation</h2>
+      <p class="mb-4 text-gray-600">Install MotionKit using npm or yarn:</p>
+      <pre><code>npm install motionkit</code></pre>
+      <div class="mt-4">
+        <p class="mb-2 text-gray-600">Or with yarn:</p>
+        <pre><code>yarn add motionkit</code></pre>
+      </div>
+    </section>
+
+    <section id="quick-start" class="section">
+      <h2 class="text-2xl font-semibold mb-4 text-gray-800">Quick Start</h2>
+      <p class="mb-4 text-gray-600">Here's how to get started with MotionKit:</p>
+      <pre><code>import { Button, Card, Input } from 'motionkit';
+
+function App() {
+  return (
+    &lt;div&gt;
+      &lt;Button variant="default"&gt;Click me&lt;/Button&gt;
+
+      &lt;Card&gt;
+        &lt;Card.Header&gt;
+          &lt;Card.Title&gt;Card Title&lt;/Card.Title&gt;
+        &lt;/Card.Header&gt;
+        &lt;Card.Content&gt;
+          &lt;p&gt;Card content&lt;/p&gt;
+          &lt;Input placeholder="Enter text..." /&gt;
+        &lt;/Card.Content&gt;
+      &lt;/Card&gt;
+    &lt;/div&gt;
+  );
+}</code></pre>
+    </section>
+
+    <section id="components" class="section">
+      <h2 class="text-2xl font-semibold mb-4 text-gray-800">Components</h2>
+
+      <div id="button" class="mb-8">
+        <h3 class="text-xl font-semibold mb-2 text-gray-800">Button</h3>
+        <p class="mb-4 text-gray-600">A customizable button component with multiple variants and animations. Now includes improved ripple effect and `animateOn` prop for entry animations.</p>
+        <h4 class="font-medium mb-2">Props:</h4>
+        <ul class="list-disc pl-5 mb-4 space-y-1">
+          <li><code>variant</code>: <code>"default" | "destructive" | "outline" | "ghost"</code></li>
+          <li><code>size</code>: <code>"sm" | "md" | "lg"</code></li>
+          <li><code>ripple</code>: <code>boolean</code> - Enable ripple effect (default: true)</li>
+          <li><code>loading</code>: <code>boolean</code> - Show loading state</li>
+          <li><code>animateOn</code>: <code>AnimationConfig</code> - Configuration for entry animations (Anime.js)</li>
+        </ul>
+        <pre><code>&lt;Button variant="default" size="md" animateOn={{ type: 'fadeIn' }}&gt;Default Button&lt;/Button&gt;</code></pre>
+      </div>
+
+      <div id="card" class="mb-8">
+        <h3 class="text-xl font-semibold mb-2 text-gray-800">Card</h3>
+        <p class="mb-4 text-gray-600">A container component with header, title, and content sections. Supports animated entrance, staggered children, and `animateOn` prop.</p>
+        <h4 class="font-medium mb-2">Props:</h4>
+        <ul class="list-disc pl-5 mb-4 space-y-1">
+          <li><code>variant</code>: <code>"default" | "elevated" | "glass"</code></li>
+          <li><code>hover</code>: <code>"none" | "lift" | "glow"</code></li>
+          <li><code>animateOn</code>: <code>AnimationConfig</code> - Configuration for entry animations (Anime.js)</li>
+          <li><code>staggerChildren</code>: <code>boolean</code> - Enables staggered animation for direct children (Framer Motion)</li>
+        </ul>
+        <pre><code>&lt;Card variant="default" hover="lift" animateOn={{ type: 'slideUp' }}&gt;
+  &lt;Card.Header&gt;
+    &lt;Card.Title&gt;Card Title&lt;/Card.Title&gt;
+  &lt;/Card.Header&gt;
+  &lt;Card.Content&gt;
+    &lt;p&gt;Card content&lt;/p&gt;
+  &lt;/Card.Content&gt;
+&lt;/Card&gt;</code></pre>
+      </div>
+
+      <div id="input" class="mb-8">
+        <h3 class="text-xl font-semibold mb-2 text-gray-800">Input</h3>
+        <p class="mb-4 text-gray-600">A styled input field component with variants, sizes, and `animateOn` prop.</p>
+        <h4 class="font-medium mb-2">Props:</h4>
+        <ul class="list-disc pl-5 mb-4 space-y-1">
+          <li><code>variant</code>: <code>"default" | "error" | "success"</code> - Visual state of the input</li>
+          <li><code>size</code>: <code>"sm" | "md" | "lg"</code> - Size of the input field</li>
+          <li><code>animateOn</code>: <code>AnimationConfig</code> - Configuration for entry animations (Anime.js)</li>
+        </ul>
+        <pre><code>&lt;Input placeholder="Enter text..." variant="default" size="md" animateOn={{ type: 'fadeIn' }} /&gt;
+&lt;Input placeholder="Error state" variant="error" /&gt;</code></pre>
+      </div>
+
+      <div id="modal" class="mb-8">
+        <h3 class="text-xl font-semibold mb-2 text-gray-800">Modal</h3>
+        <p class="mb-4 text-gray-600">An animated modal dialog component with improved accessibility and control.</p>
+        <h4 class="font-medium mb-2">Props:</h4>
+        <ul class="list-disc pl-5 mb-4 space-y-1">
+          <li><code>isOpen</code>: <code>boolean</code> - Control modal visibility</li>
+          <li><code>onClose</code>: <code>() =&gt; void</code> - Callback for closing modal (also triggered by Escape key and overlay click)</li>
+        </ul>
+        <p class="mt-2 text-gray-600">Features: Escape key close, basic focus management, scroll locking on body.</p>
+        <pre><code>&lt;Modal isOpen={isOpen} onClose={() =&gt; setIsOpen(false)}&gt;
+  &lt;Card.Header&gt;
+    &lt;Card.Title&gt;Modal Title&lt;/Card.Title&gt;
+  &lt;/Card.Header&gt;
+  &lt;Card.Content&gt;
+    &lt;p&gt;Modal content&lt;/p&gt;
+  &lt;/Card.Content&gt;
+&lt;/Modal&gt;</code></pre>
+      </div>
+
+      <div id="toggle" class="mb-8">
+        <h3 class="text-xl font-semibold mb-2 text-gray-800">Toggle</h3>
+        <p class="mb-4 text-gray-600">A switch component with smooth animation, customizable colors, and label support.</p>
+        <h4 class="font-medium mb-2">Props:</h4>
+        <ul class="list-disc pl-5 mb-4 space-y-1">
+          <li><code>enabled</code>: <code>boolean</code> - Current state of toggle</li>
+          <li><code>onChange</code>: <code>(enabled: boolean) =&gt; void</code> - Callback for state changes</li>
+          <li><code>size</code>: <code>"sm" | "md" | "lg"</code></li>
+          <li><code>label</code>: <code>React.ReactNode</code> - Optional label for the toggle</li>
+          <li><code>activeColor</code>: <code>string</code> - Tailwind class for active background color (default: bg-primary-500)</li>
+          <li><code>inactiveColor</code>: <code>string</code> - Tailwind class for inactive background color (default: bg-gray-200)</li>
+        </ul>
+        <pre><code>&lt;Toggle enabled={enabled} onChange={setEnabled} size="md" label="Enable feature" /&gt;</code></pre>
+      </div>
+
+      <div id="avatar" class="mb-8">
+        <h3 class="text-xl font-semibold mb-2 text-gray-800">Avatar</h3>
+        <p class="mb-4 text-gray-600">A component to display user profile pictures or fallback initials. Now includes `animateOn` prop.</p>
+        <h4 class="font-medium mb-2">Props:</h4>
+        <ul class="list-disc pl-5 mb-4 space-y-1">
+          <li><code>src</code>: <code>string</code> - Image source URL</li>
+          <li><code>fallback</code>: <code>string</code> - Text to show when no image</li>
+          <li><code>size</code>: <code>"sm" | "md" | "lg" | "xl"</code></li>
+          <li><code>shape</code>: <code>"circle" | "square"</code></li>
+          <li><code>animateOn</code>: <code>AnimationConfig</code> - Configuration for entry animations (Anime.js)</li>
+        </ul>
+        <pre><code>&lt;Avatar src="/path/to/image.jpg" fallback="JD" size="md" animateOn={{ type: 'scale' }} /&gt;</code></pre>
+      </div>
+
+      <div id="badge" class="mb-8">
+        <h3 class="text-xl font-semibold mb-2 text-gray-800">Badge</h3>
+        <p class="mb-4 text-gray-600">A small countable component for displaying notifications or labels. Now includes `animateOn` prop.</p>
+        <h4 class="font-medium mb-2">Props:</h4>
+        <ul class="list-disc pl-5 mb-4 space-y-1">
+          <li><code>variant</code>: <code>"default" | "primary" | "secondary" | "destructive" | "outline" | "ghost"</code></li>
+          <li><code>size</code>: <code>"sm" | "md" | "lg"</code></li>
+          <li><code>rounded</code>: <code>"sm" | "md" | "lg" | "full"</code></li>
+          <li><code>animateOn</code>: <code>AnimationConfig</code> - Configuration for entry animations (Anime.js)</li>
+        </ul>
+        <pre><code>&lt;Badge variant="primary" size="md" animateOn={{ type: 'bounce' }}&gt;New&lt;/Badge&gt;</code></pre>
+      </div>
+
+      <div id="alert" class="mb-8">
+        <h3 class="text-xl font-semibold mb-2 text-gray-800">Alert</h3>
+        <p class="mb-4 text-gray-600">A component to display important messages to the user. Now includes default icons and improved accessibility.</p>
+        <h4 class="font-medium mb-2">Props:</h4>
+        <ul class="list-disc pl-5 mb-4 space-y-1">
+          <li><code>variant</code>: <code>"default" | "info" | "success" | "warning" | "destructive"</code></li>
+          <li><code>show</code>: <code>boolean</code> - Control alert visibility</li>
+          <li><code>closable</code>: <code>boolean</code> - Show close button</li>
+          <li><code>onClose</code>: <code>() =&gt; void</code> - Callback for closing</li>
+          <li><code>title</code>: <code>string</code> - Alert title</li>
+          <li><code>description</code>: <code>string</code> - Alert description</li>
+          <li><code>icon</code>: <code>React.ReactNode</code> - Custom icon (overrides default)</li>
+        </ul>
+        <pre><code>&lt;Alert
+  variant="info"
+  title="Info Alert"
+  description="This is an info message"
+  closable
+  onClose={() =&gt; setShowAlert(false)}
+/&gt;</code></pre>
+      </div>
+
+      <!-- New Components Sections -->
+      <div id="checkbox" class="mb-8">
+        <h3 class="text-xl font-semibold mb-2 text-gray-800">Checkbox</h3>
+        <p class="mb-4 text-gray-600">A customizable checkbox input with animated states and label support.</p>
+        <h4 class="font-medium mb-2">Props:</h4>
+        <ul class="list-disc pl-5 mb-4 space-y-1">
+          <li><code>checked</code>: <code>boolean</code> - Current checked state</li>
+          <li><code>onCheckedChange</code>: <code>(checked: boolean) =&gt; void</code> - Callback for state changes</li>
+          <li><code>disabled</code>: <code>boolean</code> - Disable checkbox</li>
+          <li><code>size</code>: <code>"sm" | "md" | "lg"</code></li>
+          <li><code>label</code>: <code>React.ReactNode</code> - Optional label for the checkbox</li>
+          <li><code>animateOn</code>: <code>AnimationConfig</code> - Configuration for entry animations (Anime.js)</li>
+        </ul>
+        <pre><code>&lt;Checkbox checked={isChecked} onCheckedChange={setIsChecked} label="Remember me" animateOn={{ type: 'slideUp' }} /&gt;</code></pre>
+      </div>
+
+      <div id="radio-group" class="mb-8">
+        <h3 class="text-xl font-semibold mb-2 text-gray-800">Radio Group</h3>
+        <p class="mb-4 text-gray-600">A group of radio buttons where only one option can be selected at a time.</p>
+        <h4 class="font-medium mb-2">Props (RadioGroup):</h4>
+        <ul class="list-disc pl-5 mb-4 space-y-1">
+          <li><code>value</code>: <code>string</code> - Currently selected value</li>
+          <li><code>onValueChange</code>: <code>(value: string) =&gt; void</code> - Callback for value changes</li>
+          <li><code>disabled</code>: <code>boolean</code> - Disable the entire group</li>
+          <li><code>orientation</code>: <code>"horizontal" | "vertical"</code> - Layout of radio items</li>
+          <li><code>animateOn</code>: <code>AnimationConfig</code> - Configuration for entry animations (Anime.js)</li>
+        </ul>
+        <h4 class="font-medium mb-2">Props (RadioGroupItem):</h4>
+        <ul class="list-disc pl-5 mb-4 space-y-1">
+          <li><code>value</code>: <code>string</code> - Value of this radio item</li>
+          <li><code>id</code>: <code>string</code> - Unique ID</li>
+          <li><code>disabled</code>: <code>boolean</code> - Disable this item</li>
+        </ul>
+        <pre><code>&lt;RadioGroup value={selectedValue} onValueChange={setSelectedValue} orientation="horizontal" animateOn={{ type: 'scale' }}&gt;
+  &lt;RadioGroupItem value="option-a"&gt;Option A&lt;/RadioGroupItem&gt;
+  &lt;RadioGroupItem value="option-b"&gt;Option B&lt;/RadioGroupItem&gt;
+&lt;/RadioGroup&gt;</code></pre>
+      </div>
+
+      <div id="select" class="mb-8">
+        <h3 class="text-xl font-semibold mb-2 text-gray-800">Select</h3>
+        <p class="mb-4 text-gray-600">A customizable dropdown/select component for choosing an option from a list.</p>
+        <h4 class="font-medium mb-2">Props (Select):</h4>
+        <ul class="list-disc pl-5 mb-4 space-y-1">
+          <li><code>value</code>: <code>string</code> - Currently selected value</li>
+          <li><code>onValueChange</code>: <code>(value: string) =&gt; void</code> - Callback for value changes</li>
+          <li><code>disabled</code>: <code>boolean</code> - Disable the select</li>
+          <li><code>placeholder</code>: <code>string</code> - Placeholder text</li>
+        </ul>
+        <h4 class="font-medium mb-2">Props (SelectItem):</h4>
+        <ul class="list-disc pl-5 mb-4 space-y-1">
+          <li><code>value</code>: <code>string</code> - Value of this item</li>
+          <li><code>disabled</code>: <code>boolean</code> - Disable this item</li>
+        </ul>
+        <pre><code>&lt;Select value={selectedFruit} onValueChange={setSelectedFruit} placeholder="Choose a fruit"&gt;
+  &lt;SelectTrigger animateOn={{ type: 'fadeIn' }} /&gt;
+  &lt;SelectContent&gt;
+    &lt;SelectItem value="apple"&gt;Apple&lt;/SelectItem&gt;
+    &lt;SelectItem value="banana"&gt;Banana&lt;/SelectItem&gt;
+    &lt;SelectSeparator /&gt;
+    &lt;SelectItem value="orange"&gt;Orange&lt;/SelectItem&gt;
+  &lt;/SelectContent&gt;
+&lt;/Select&gt;</code></pre>
+      </div>
+
+      <div id="tabs" class="mb-8">
+        <h3 class="text-xl font-semibold mb-2 text-gray-800">Tabs</h3>
+        <p class="mb-4 text-gray-600">A set of layered content areas, with only one visible at a time.</p>
+        <h4 class="font-medium mb-2">Props (Tabs):</h4>
+        <ul class="list-disc pl-5 mb-4 space-y-1">
+          <li><code>defaultValue</code>: <code>string</code> - Initial active tab</li>
+          <li><code>value</code>: <code>string</code> - Controlled active tab</li>
+          <li><code>onValueChange</code>: <code>(value: string) =&gt; void</code> - Callback for tab changes</li>
+          <li><code>orientation</code>: <code>"horizontal" | "vertical"</code> - Layout of tabs</li>
+          <li><code>animateOn</code>: <code>AnimationConfig</code> - Configuration for entry animations (Anime.js)</li>
+        </ul>
+        <h4 class="font-medium mb-2">Props (TabsTrigger):</h4>
+        <ul class="list-disc pl-5 mb-4 space-y-1">
+          <li><code>value</code>: <code>string</code> - Value of this tab</li>
+          <li><code>disabled</code>: <code>boolean</code> - Disable this tab</li>
+        </ul>
+        <h4 class="font-medium mb-2">Props (TabsContent):</h4>
+        <ul class="list-disc pl-5 mb-4 space-y-1">
+          <li><code>value</code>: <code>string</code> - Value corresponding to the tab</li>
+        </ul>
+        <pre><code>&lt;Tabs defaultValue="tab1" animateOn={{ type: 'slideDown' }}&gt;
+  &lt;TabsList&gt;
+    &lt;TabsTrigger value="tab1"&gt;Account&lt;/TabsTrigger&gt;
+    &lt;TabsTrigger value="tab2"&gt;Password&lt;/TabsTrigger&gt;
+  &lt;/TabsList&gt;
+  &lt;TabsContent value="tab1"&gt;Make changes to your account here.&lt;/TabsContent&gt;
+  &lt;TabsContent value="tab2"&gt;Change your password here.&lt;/TabsContent&gt;
+&lt;/Tabs&gt;</code></pre>
+      </div>
+
+      <div id="tooltip" class="mb-8">
+        <h3 class="text-xl font-semibold mb-2 text-gray-800">Tooltip</h3>
+        <p class="mb-4 text-gray-600">A small, contextual popup that displays information about an element on hover or focus.</p>
+        <h4 class="font-medium mb-2">Props (Tooltip):</h4>
+        <ul class="list-disc pl-5 mb-4 space-y-1">
+          <li><code>delayDuration</code>: <code>number</code> - Delay before showing/hiding (ms)</li>
+          <li><code>open</code>: <code>boolean</code> - Controlled open state</li>
+          <li><code>onOpenChange</code>: <code>(open: boolean) =&gt; void</code> - Callback for open state changes</li>
+        </ul>
+        <h4 class="font-medium mb-2">Props (TooltipContent):</h4>
+        <ul class="list-disc pl-5 mb-4 space-y-1">
+          <li><code>side</code>: <code>"top" | "bottom" | "left" | "right"</code> - Side to display tooltip</li>
+          <li><code>align</code>: <code>"start" | "center" | "end"</code> - Alignment of tooltip</li>
+          <li><code>offset</code>: <code>number</code> - Offset from trigger (px)</li>
+        </ul>
+        <pre><code>&lt;Tooltip&gt;
+  &lt;TooltipTrigger&gt;
+    &lt;Button variant="outline"&gt;Hover me&lt;/Button&gt;
+  &lt;/TooltipTrigger&gt;
+  &lt;TooltipContent side="right"&gt;
+    Hello from Tooltip!
+  &lt;/TooltipContent&gt;
+&lt;/Tooltip&gt;</code></pre>
+      </div>
+
+      <div id="progress-bar" class="mb-8">
+        <h3 class="text-xl font-semibold mb-2 text-gray-800">Progress Bar</h3>
+        <p class="mb-4 text-gray-600">A visual indicator of progress toward the completion of a task.</p>
+        <h4 class="font-medium mb-2">Props:</h4>
+        <ul class="list-disc pl-5 mb-4 space-y-1">
+          <li><code>value</code>: <code>number</code> - Current progress (0-100)</li>
+          <li><code>max</code>: <code>number</code> - Maximum value (default: 100)</li>
+          <li><code>animateOn</code>: <code>AnimationConfig</code> - Configuration for entry animations (Anime.js)</li>
+          <li><code>indicatorClassName</code>: <code>string</code> - Tailwind classes for the progress indicator</li>
+        </ul>
+        <pre><code>&lt;ProgressBar value={75} animateOn={{ type: 'fadeIn' }} /&gt;</code></pre>
+      </div>
+
+      <div id="spinner" class="mb-8">
+        <h3 class="text-xl font-semibold mb-2 text-gray-800">Spinner</h3>
+        <p class="mb-4 text-gray-600">A visual indicator for loading states with customizable size and color.</p>
+        <h4 class="font-medium mb-2">Props:</h4>
+        <ul class="list-disc pl-5 mb-4 space-y-1">
+          <li><code>size</code>: <code>"sm" | "md" | "lg" | "xl"</code></li>
+          <li><code>color</code>: <code>string</code> - CSS color value (e.g., "#0ea5e9" or "currentColor")</li>
+        </ul>
+        <pre><code>&lt;Spinner size="lg" color="currentColor" /&gt;</code></pre>
+      </div>
+    </section>
+
+    <footer class="mt-12 pt-8 border-t border-gray-200 text-center text-gray-600">
+      <p>© 2025 MotionKit. All rights reserved.</p>
+    </footer>
+  </div>
+</body>
+</html>
