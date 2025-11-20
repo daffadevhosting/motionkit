@@ -5,7 +5,7 @@ MotionKit is a modern component library for React applications, providing a rich
 ## Installation
 
 ```bash
-npm install motionkit
+npm install @jekyll-studio/motionkit
 ```
 
 ## Usage
